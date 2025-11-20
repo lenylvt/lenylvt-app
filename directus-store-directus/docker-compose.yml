@@ -1,18 +1,18 @@
 services:
   app_proxy:
     environment:
-      APP_HOST: directus-backend_web_1
+      APP_HOST: directus-store-directus_web_1
       APP_PORT: 8055
 
   web:
     image: directus/directus:11.2.2
-    container_name: directus-backend_web
+    container_name: directus-store-directus_web
     restart: on-failure
     stop_grace_period: 30s
     environment:
       # Database
       DB_CLIENT: postgres
-      DB_HOST: directus-backend_db_1
+      DB_HOST: directus-store-directus_db_1
       DB_PORT: 5432
       DB_DATABASE: directus
       DB_USER: directus
@@ -62,7 +62,7 @@ services:
 
   db:
     image: postgres:16-alpine
-    container_name: directus-backend_db
+    container_name: directus-store-directus_db
     restart: on-failure
     stop_grace_period: 30s
     environment:
